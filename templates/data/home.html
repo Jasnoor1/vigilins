@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'App_Themes/Admin/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'App_Themes/Admin/css/fontawesome/fontawesome-all.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    
+    <script src="{% static 'App_Themes/Admin/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'App_Themes/Admin/js/main.js' %}" type="text/javascript"></script>
+    
+     
+    
+</head>
+<body>
+
+    <!-- Top Header Start -->
+    <div class="TopHeader">
+        <div class="LogoDiv">
+            <img class="large" src="{% static 'App_Themes/Admin/images/Logo.png' %}">
+            <img class="small" src="{% static 'App_Themes/Admin/images/Logo-small.png' %}">
+        </div>
+
+        <div class="TopHeaderLeft">
+            <a class="MenuToggle"><i class="fas fa-bars"></i></a>
+        </div>
+       
+        <ul class="TopHeaderRight">
+            <li>
+
+        <p>Welcome , <span><b> {{name}}   | <text>Account Type :</text>  Moderator </b></span> </p>
+            </li>
+            <li>
+<a class="nav-link"><i class="far fa-bell"></i></a>
+<div class="dropdown-menu  dropdown-menu-lg show">
+<div class="dropdown-header text-center">
+<strong>You have  notifications</strong>
+</div>
+        <div id="IDNotification">
+        </div>
+</div>
+            </li>
+            <li class="profile"> 
+                <a class="nav-link"><span><img src="{% static 'App_Themes/Admin/images/No_Images.jpg' %}"></span></a>
+                <div class="dropdown-menu show">
+                    <div class="divider"></div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- END Top Header -->
+    <!-- Main Container Start -->
+    <div class="MainContainer">
+        <!-- Left Menu Start -->
+        <div class="LeftMenu">
+            <ul class="SideMenu" id="LeftSidemenu">
+    <li>
+                    <a href="{% url 'home' %}"> <i class='fas fa-tachometer-alt'></i> Dashboard </a>
+
+    </li>
+    <li>
+
+                    <a href="{% url 'sus_case' %}"> <i class='fas fa-user-md'></i> Suspicious Cases </a>
+
+            
+
+
+    </li>
+    <li>
+
+                    <a href="{% url 'user' %}"> <i class='fas fa-user-md'></i> User </a>
+
+            
+
+
+    </li>
+    <li>
+
+                    <a href="{% url 'token' %}"> <i class='fas fa-user-md'></i> Token </a>
+
+            
+
+
+    </li>
+    <li>
+
+                    <a href="{% url 'data_upload' %}"> <i class='fas fa-file-upload'></i> Data Upload </a>
+
+            
+
+
+    </li>
+    <li>
+
+                    <a href="{% url 'vig_rating' %}"> <i class='fas fa-star'></i> Vigilins Rating </a>
+
+            
+
+
+    </li>
+
+
+                
+            </ul>
+        </div>
+        <!-- END Left Menu -->
+        <!-- Right Container Start -->
+        <div class="RightContainer">
+            <div class="container-fluid">
+                
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div class="content-header">
+    <h1>
+        Dashboard<small></small>
+    </h1>
+
+</div>
+
+
+<div class="content">
+
+
+    <div class="CategoryDivs">
+        <div class="row">
+
+
+<div class="col-3">
+<a href='#'>
+<div class='Category warning'>
+<span class="CategoryIcon"><i class="fas fa-user-tag"></i></span>
+<span class="CategoryNumber">3</span>
+<span class="CategoryTitle">Notify</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href='#'>
+<div class='Category danger'>
+<span class="CategoryIcon"><i class="fas fa-user-times"></i></span>
+<span class="CategoryNumber">2</span>
+<span class="CategoryTitle">Confirmed Fraud</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href='#'>
+<div class='Category success'>
+<span class="CategoryIcon"><i class="fas fa-user-check"></i></span>
+<span class="CategoryNumber">2</span>
+<span class="CategoryTitle">Clean Case</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href='#'>
+<div class='Category info'>
+<span class="CategoryIcon"><i class="fas fa-users"></i></span>
+<span class="CategoryNumber">0</span>
+<span class="CategoryTitle">Write To Block</span>
+ </div>
+ </a> 
+ </div> 
+
+
+           
+
+        </div>
+    </div>
+
+    <div class="graphDIvs">
+        <div class="row">
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="CardTitle">
+                Suspicious Cases
+                <span class="small"></span>
+                <span class="ToggleLink">
+                    <a class="ToggleCardBody active">
+                        <i class="fas fa-window-minimize minimise"></i>
+                        <i class="fas fa-plus maximise"></i>
+                    </a>
+                </span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="graphtabs">
+
+                    <a class="btn" onclick="return ClickFunction(1);" id="daily">Daily</a>
+
+                    <a class="btn active" id="weekly" onclick="return ClickFunction(2)">Weekly</a>
+                    <a class="btn" id="Monthly" onclick="return ClickFunction(3)">Monthly</a>
+                </div>
+            </div>
+            <div class="CustomForms">
+                <div class="row">
+                    <div id="containerPie" style="min-width: 510px; max-width: 1200px; height:400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dialog" style="display: none">
+    </div>
+
+    
+
+
+    <script type="text/javascript">
+        function codeAddress() {
+            ClickFunction(2);
+        }
+        window.onload = codeAddress;
+    </script>
+  
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".btn").each(function () {
+            $(this).click(function () {
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+            });
+        });
+    });
+
+    function ClickFunction(e) {
+
+
+        $.ajax({
+            type: "POST",
+            url: "Home/Suspicious_Cases_PieScript?duration=" + e,
+            success: function (result) {
+                $('#dialog').html(result);
+            },
+
+            });
+    }
+    </script>
+</div>
+
+
+
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+
+            <h3 class="CardTitle">
+                Suspicious Cases
+                <span class="small"></span>
+                <span class="ToggleLink">
+                    <a class="ToggleCardBody active">
+                        <i class="fas fa-window-minimize minimise"></i>
+                        <i class="fas fa-plus maximise"></i>
+                    </a>
+                </span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="graphtabs">
+                    <a class="btn" onclick="return ClickFunctionChart2(1);" id="daily">Daily</a>
+                    <a class="btn active" id="weekly" onclick="return ClickFunctionChart2(2)">Weekly</a>
+                    <a class="btn" id="Monthly" onclick="return ClickFunctionChart2(3)">Monthly</a>
+                </div>
+            </div>
+            <div class="CustomForms">
+                <div class="row">
+                    <div id="containerChart2" style="min-width: 510px; max-width: 1200px; height:480px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {            
+            
+            $.ajax({
+                url: "Home/Suspicious_Cases_Chart2Script",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",                
+                data: "{}",
+                dataType: "json",
+                success: function (Result) {
+                    var series = [];
+                    var categories = [];                    
+                    var Notify = [];
+                    var CleanCase = [];
+                    var WriteToBlock = [];
+                    var InvestigationRecommended = [];
+                  
+                    for (i = 0; i < Result.length; i++)
+                    {                      
+                        categories.push(Result[i].UserAddDate);
+                        Notify.push(Result[i].Notify);
+                        CleanCase.push(Result[i].CleanCase);
+                        WriteToBlock.push(Result[i].WriteToBlock);
+                    }
+                    
+                    series.push({
+                        name: 'Notify',
+                        data: Notify
+                    },
+                     {
+                         name: 'Investigation Recommended',
+                         data: InvestigationRecommended
+                     },
+                        {
+                            name: 'Clean Case',
+                            data: CleanCase
+                        },
+                        {
+                            name: 'Write To Block',
+                            data: WriteToBlock
+                        }
+                        
+                    );
+                    BindChart(categories, series);
+                },
+                error: function (xhr) {
+                   
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+        });
+        
+        /////////////////////////////////////////////////////////////////////////////
+
+        function BindChart(categories, series) {
+            Highcharts.chart('containerChart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text:''
+                    
+                },
+                xAxis: {
+
+                    categories: categories
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: ''
+                    },
+                    stackLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        }
+                    }
+                },
+                legend: {
+                    align: 'right',
+                    x: -30,
+                    verticalAlign: 'top',
+                    y: 25,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                tooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: false,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                        }
+                    }
+                },
+                series: series
+            });
+        }
+
+        
+
+        $(document).ready(function () {
+            $(".btn").each(function () {
+                $(this).click(function () {
+                    $(this).addClass("active");
+                    $(this).siblings().removeClass("active");
+                });
+            });
+        });
+
+        function ClickFunctionChart2(e) {
+           
+            $.ajax({
+                url: "Home/Suspicious_Cases_Chart2Script?duration=" + e,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (Result) {
+                    var series = [];
+                    var categories = [];
+                    var Notify = [];
+                    var CleanCase = [];
+                    var WriteToBlock = [];
+                    var InvestigationRecommended = [];
+                    for (i = 0; i < Result.length; i++) {
+                        categories.push(Result[i].UserAddDate);
+                        Notify.push(Result[i].Notify);
+                        CleanCase.push(Result[i].CleanCase);
+                        WriteToBlock.push(Result[i].WriteToBlock);
+                    }
+
+                    series.push({
+                        name: 'Notify',
+                        data: Notify
+                    },
+                        {
+                            name: 'Clean Case',
+                            data: CleanCase
+                        },
+                        {
+                            name: 'Write To Block',
+                            data: WriteToBlock
+                        }
+
+                    );
+                    BindChart(categories, series);
+                },
+                error: function (xhr) {
+
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+
+            });
+        }
+    </script>
+
+</div>
+
+
+
+        </div>
+    </div>
+   
+
+</div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+</body>
+</html>

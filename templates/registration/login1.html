@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+     {% load static %}
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'App_Themes/Admin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'App_Themes/Admin/css/fontawesome/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'App_Themes/Admin/css/login.css' %}">
+    
+</head>
+<body>
+    <div class="login-form">
+            <div class="form-horizontal">
+                <h2 class="text-center">Log in</h2>
+                <hr />
+                <form action="" method="post">{% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i> </span>
+                            <!-- <input type="text" placeholder="username" class="form-control"> -->
+                            {{form.username}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            <!-- 1<input type="text" placeholder="password" class="form-control"> -->
+                            {{form.password}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" id="SubmitButton">Log in</button>
+                </div>
+            </form>
+            </div>
+    </div>
+    <script src="{% static 'App_Themes/Admin/js/scripts/jquery-1.10.2.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'App_Themes/Admin/js/scripts/jquery.validate.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'App_Themes/Admin/js/scripts/jquery.validate.unobtrusive.min.js' %}" type="text/javascript"></script>
+</body>
+</html>

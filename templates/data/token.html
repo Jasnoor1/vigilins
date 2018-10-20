@@ -1,0 +1,78 @@
+{% extends 'data/base.html' %}
+{% block content %}                  
+
+<div class="content-header">
+    <h1>
+        Token  (Client) <small>Details</small>
+    </h1>
+
+</div>
+<div class="content">
+<form action="/Vigillns/Admin/Client/List" method="post">        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Token (Client)
+                            <span class="small">Details</span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody active">
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+
+                        <table class="CustomTable">
+                            <thead>
+                                <tr>
+                                    <th>S#</th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Token
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                    {% for i in object_list %}
+                                    <tr>
+                                        <td>
+                                            <span>1</span>
+                                        </td>
+                                        <td>
+                                            {{i.name}}
+                                        </td>
+                                        <td>
+                                            {{i.address}}
+                                        </td>
+                                        <td>
+                                            {{i.token}}
+                                        </td>
+                                    </tr>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form></div>
+
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+{% endblock %}

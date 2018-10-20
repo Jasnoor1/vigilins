@@ -1,0 +1,296 @@
+{% extends 'data/super_admin_base.html' %}
+{% block content %}                
+
+<div class="content-header">
+    <h3>
+        Suspicious Cases <small></small>
+    </h3>
+</div>
+<div class="content CustomTabs">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#Heath">Heath</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#MotoFraud">Motor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#MarineFraud">Marine</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="Heath" class="container tab-pane active">
+<form action="" method="get">    
+    <!-- <input type=hidden name=Client_ID id="Client_ID" value="0"> -->
+    <div class="CustomForms">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Search
+                            <span class="small"> </span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody">
+
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+
+
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                        <div class="card-body" style="display: none">
+                            <div class="row">
+                                
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                        </div>
+                                    </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="button-group">
+                                        <input type="submit" value="Search" class="btn btn-warning" />
+                                    </div>
+                                </div>
+
+                                
+
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <div id="Health" class="CustomForms">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Details
+                            <span class="small"></span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody active">
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="CustomTable" id="tblDynamic">
+                                
+
+                                <thead>
+                                    <tr>
+                                        <th>S#</th>
+                                        <th>
+                                            Findings
+                                        </th>
+                                        <th>
+                                            Policy Number
+                                        </th>
+                                        <th>
+                                            claim Number
+                                        </th>
+                                        <th>
+                                            Patient Name
+                                        </th>
+                                        
+
+                                        <th>
+                                            PAN
+                                        </th>
+                                        <th>
+                                            Aadhar Number
+                                        </th>
+                                        <th>
+                                            Fraud Notified Date
+                                        </th>
+
+                                        <th>
+                                            Current Status
+                                        </th>
+
+
+                                        <th>
+                                            Action
+                                        </th>
+                                        <th>
+                                            TimeLine
+                                        </th>
+                                    </tr>
+                                </thead>
+                                {% for i in object_list %}
+                                        <tr class="yellowbg">
+                                            <td>
+                                                <span>{{forloop.counter}}</span>
+                                            </td>
+                                                <td>
+                                                {{i.fraud_desc}}
+                                  
+                                                </td>
+
+                                            <td>
+                                                {{i.policy_id}}
+                                            </td>
+                                            <td>
+                                                {{i.claim_no}}
+                                            </td>
+                                            <td>
+                                                {{i.first_name}}
+                                            </td>
+                                            <td>
+                                                {{i.pan_id}}
+</td>                                            
+
+                                            <td>
+                                                {{i.aadhar_id}}
+                                            </td>
+                                            <td>
+                                                {{i.fraud_notified_date}}
+                                            </td>
+
+                                            <td>
+                                                {{i.fraud_status}}
+                                            </td>
+                                            <td>
+                                                <!-- <form method="post">{% csrf_token %} -->
+                                                {% if i.super_admin_flag == '0' %}
+                                                <a href="" class="confirmcleanbtn" id="confirmcleanbtn" data-catid="{{i.fraud_id}}" value="confirm_clean"> confirm clean</a>
+                                                <a href="" class="confirmfraudbtn" id="confirmfraudbtn" data-catid="{{i.fraud_id}}" value="confirm_fraud">confirm fraud</a>
+                                                {% endif %}
+                                                
+                                                    <!-- a class="TblIconBtn warning" id="Btn_1" onclick="buttonClick(this);" data-toggle="tooltip" title="Notify" data-original-title=IconValue>
+                                                        <i class="fas fa-user-tag"></i>
+
+                                                    </a> -->
+                                                
+
+                                            </td>
+                                            <td>notified on {{i.fraud_notified_date}}
+                                                -------------------------------
+                                                 status of claim inspect on {{i.fraud_identified_date}}
+                                                
+                                            </td>
+
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                
+                                   
+    <a href="#" class="paginate" id="previous">Previous</a> |
+    <a href="#" class="paginate" id="next">Next</a>
+</div>
+<script type="text/javascript">
+
+$(".confirmcleanbtn").click(function(){
+    var catid;
+    console.log('hi clean btn')
+    catid = $(this).attr("data-catid")
+    console.log(catid)
+    value = $(this).attr("value")
+    console.log(value)
+
+
+    $.ajax(
+    {
+        type:"POST",
+        url: '/super_admin_suspicious_cases/',
+        data:{
+                 fraud_id: $(this).attr("data-catid"),
+                 value: $(this).attr("value"),
+                 csrfmiddlewaretoken:'{{ csrf_token }}'
+        },
+        success: function() 
+        {
+            location.reload();
+        }
+     })
+});
+
+$(".confirmfraudbtn").click(function(){
+    console.log('hi fraud btn')
+    var catid
+    catid = $(this).attr("data-catid")
+    console.log(catid)
+    value = $(this).attr("value")
+    console.log(value)
+
+
+    $.ajax(
+    {
+        type:"POST",
+        url: '/super_admin_suspicious_cases/',
+        data:{
+                 fraud_id: $(this).attr("data-catid"),
+                 value: $(this).attr("value"),
+                 csrfmiddlewaretoken:'{{ csrf_token }}'
+        },
+        success: function() 
+        {
+            location.reload();
+        }
+     })
+});
+
+
+
+    
+
+</script>
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+    {% endblock %}

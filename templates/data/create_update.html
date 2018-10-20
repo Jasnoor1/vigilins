@@ -1,0 +1,165 @@
+{% extends 'data/base.html' %}
+
+{% block content %}
+<div class="content-header">
+    <h3>
+       Add Suspicious Cases <small></small>
+    </h3>
+    <div id="MsgDisplay" style="color:Green;"></div>
+    <div id="MsgDisplayError" style="color:red;"></div>
+</div>
+<div class="content">
+<form action="" method="post">
+    <div class="CustomForms">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            <span class="small"> </span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody active">
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_claimno">Claim no</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_claimno" name="searchfraud.claimno" type="text" value="" />
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_EmpName">Emp Name</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_EmpName" name="searchfraud.EmpName" type="text" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_CardNo">Card No</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_CardNo" name="searchfraud.CardNo" type="text" value="" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyNo">Policy No</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_PolicyNo" name="searchfraud.PolicyNo" type="text" value="" />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyFrom">Policy From</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_PolicyFrom" name="searchfraud.PolicyFrom" type="text" value="" />
+
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12" style="display:none;">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyUpto">Policy Upto</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_PolicyUpto" name="searchfraud.PolicyUpto" type="text" value="" />
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_SumInsured">Sum Insured</label>
+                                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field Sum Insured must be a number." data-val-required="The Sum Insured field is required." id="searchfraud_SumInsured" name="searchfraud.SumInsured" type="number" value="0" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_GroupName">Group Name</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_GroupName" name="searchfraud.GroupName" type="text" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_NSPCity">NSP City</label>
+                                        <input class="form-control text-box single-line" id="searchfraud_NSPCity" name="searchfraud.NSPCity" type="text" value="" />
+                                    </div>
+                                </div>
+
+                        </div>
+
+                            <div class="card-foote">
+                                <div class="button-group">
+                                    <input type="button" value="Create" id="BtnCreate"  class="btn btn-warning" />
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</form></div>
+<script type="text/javascript">
+    $("#BtnCreate").click(function () {
+        $("#MsgDisplay").html('');
+        $("#MsgDisplayError").html('');
+
+        //var policy = $("#searchfraud_PolicyNumber").val();
+        //var Client_ID = $("#searchfraud_Client_ID:selected").val();
+        //var FirstName = $("#searchfraud_FirstName").val();
+        //var LastName = $("#searchfraud_LastName").val();
+        //var ClaimID = $("#searchfraud_ClaimID").val();
+        //var ID = $("#searchfraud_ID:selected").val();
+        //var PAN = $("#searchfraud_PAN").val();
+        //var AadharNumber = $("#searchfraud_AadharNumber").val();
+        //debugger;
+        //if (policy == 0) {
+        //    $("#MsgDisplayError").html("policy number can't be blank!");
+        //    return false;
+        //}
+        //if (Client_ID == 0) {
+        //    $("#MsgDisplayError").html("Please select Client!");
+        //    return false;
+        //}
+        //if (FirstName == null) {
+        //    $("#MsgDisplayError").html("Please Insert FirstName !");
+        //    return false;
+        //}
+        //if (LastName == null) {
+        //    $("#MsgDisplayError").html("Please Insert LastName !");
+        //    return false;
+
+        //}
+        //if (AadharNumber==null) {
+        //    $("#MsgDisplayError").html("Please Insert AadharNumber !");
+        //    return false;
+
+        //}
+
+        //if (policy >0)
+        //{
+            $("#MsgDisplay").html("Record Saved Successfully!");
+
+        //}
+        //else {
+        //    $("#MsgDisplayError").html("Record Not inserted!");
+        //    return false;
+        //}
+
+    });
+
+</script>
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+
+{% endblock content %}

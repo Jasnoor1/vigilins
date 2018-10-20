@@ -1,0 +1,430 @@
+{% extends 'data/base.html' %}
+{% block content %}                
+
+<div class="content-header">
+    <h3>
+        Suspicious Cases <small></small>
+    </h3>
+</div>
+<div class="content CustomTabs">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#Heath">Heath</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#MotoFraud">Motor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#MarineFraud">Marine</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="Heath" class="container tab-pane active">
+<form action="" method="get">    
+    <!-- <input type=hidden name=Client_ID id="Client_ID" value="0"> -->
+    <div class="CustomForms">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Search
+                            <span class="small"> </span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody">
+
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+
+
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                        <div class="card-body" style="display: none">
+                            <div class="row">
+                                
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                        <div class="form-group">
+                                          {{filter.form.client_name.label_tag}}
+                                          {{filter.form.client_name}}
+                                        </div>
+                                    </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                         {{filter.form.fraud_desc.label_tag }}
+                                         {{filter.form.fraud_desc}}
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.policy_id.label_tag}}
+                                        {{filter.form.policy_id}}
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.claim_no.label_tag}}
+                                        {{filter.form.claim_no}}
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.first_name.label_tag}}
+                                        {{filter.form.first_name}}
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.pan_id.label_tag}}
+                                        {{filter.form.pan_id}}
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.aadhar_id.label_tag}}
+                                        {{filter.form.aadhar_id}}
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.fraud_notified_date.label_tag}}
+                                        {{filter.form.fraud_notified_date}}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        {{filter.form.fraud_status.label_tag}}
+                                        {{filter.form.fraud_status}}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="button-group">
+                                        <input type="submit" value="Search" class="btn btn-warning" />
+                                    </div>
+                                </div>
+
+                                
+
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <div id="Health" class="CustomForms">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Details
+                            <span class="small"></span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody active">
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="CustomTable" id="tblDynamic">
+                                
+
+                                <thead>
+                                    <tr>
+                                        <th>S#</th>
+                                            <th>
+                                                Insurance Company
+                                            </th>
+                                        <th>
+                                            Findings
+                                        </th>
+                                        <th>
+                                            Policy Number
+                                        </th>
+                                        <th>
+                                            claim Number
+                                        </th>
+                                        <th>
+                                            Patient Name
+                                        </th>
+                                        
+
+                                        <th>
+                                            PAN
+                                        </th>
+                                        <th>
+                                            Aadhar Number
+                                        </th>
+                                        <th>
+                                            Fraud Notified Date
+                                        </th>
+
+                                        <th>
+                                            Current Status
+                                        </th>
+
+
+                                        <th>
+                                            Action
+                                        </th>
+                                        <th>
+                                            TimeLine
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                        {% for i in object_list %}
+                                        <tr class="yellowbg">
+                                            <td>
+                                                <span>{{forloop.counter}}</span>
+                                            </td>
+                                                <td>
+                                                    {{i.client_name}}
+                                                </td>
+
+                                            <td>
+                                                {{i.fraud_desc}}
+                                            </td>
+                                            <td>
+                                                {{i.policy_id}}
+                                            </td>
+                                            <td>
+                                                {{i.claim_no}}
+                                            </td>
+                                            <td>
+                                                 {{i.first_name}}   
+                                            </td>
+                                            
+
+                                            <td>
+                                                {{i.pan_id}}
+                                            </td>
+                                            <td>
+                                                {{i.aadhar_id}}
+                                            </td>
+
+                                            <td>
+                                                    {{i.fraud_notified_date}}
+                                            </td>
+                                            <td>
+                                                {{i.fraud_status}}
+                                            </td>
+                                            <td>
+                                    
+                                                      <!-- Trigger the modal with a button -->
+                                                     {% if i.flag == '0' %}
+                                                     <a href="" type="button" class="subbtn btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="subbtn" data-catid="{{ i.id }}" ><i class="fas fa-user-tag"></i></a>
+                                                        {% endif %}
+                                                      
+
+
+                                        <div class="modal fade" id="myModal" role="dialog">
+                                            <div class="modal-dialog" style="top:100px;">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4>Case Remark</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                                    </div>
+                                                    <form method="post" class="myform" id="myform">{% csrf_token %}
+                                                        <div class="modal-body">
+                                                            <div class="col-xl-12 col-lg-4 col-sm-6 col-12">
+                                                                <label for="remark">Remarks</label>
+                                                                <input class="form-control text-box single-line" id="remark" name="remark" type="text" value="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <input type="submit" id="btnRemarks" value="Ok" class="btn btn-default"/>
+                                                            <button type="button" class="btn btn-default"   
+                                                            data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                      <!-- <div class="modal fade" id="myModal" role="dialog">
+                                                        <div class="modal-dialog" style="top:100px;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4>Case Remark</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                                                    <form method="post" class="myform" id="myform">{% csrf_token %}
+                                                                        <label for="remark">Remarks</label>
+                                                                        <input class="form-control text-box single-line" id="remark" name="remark" type="text" value="" />
+                                                            <div class="modal-footer">
+                                                                <input type="submit" id ="formsubbtn" value="ok">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                        </div><div></div></form></div></div></div></div>
+ -->
+                                                      <!-- Modal -->
+                                                      <!-- <div class="modal fade" id="myModal" role="dialog">
+                                                        <div class="modal-dialog"> -->
+                                                        
+                                                          <!-- Modal content-->
+                                                          <!-- <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                              <h4 class="modal-title">Modal Header</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                              <p>Some text in the modal.</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                          </div>
+                                                          
+                                                        </div>
+                                                      </div> -->
+                                                      
+                                                    
+
+
+                                                    <!-- a class="TblIconBtn warning" id="Btn_1" onclick="buttonClick(this);" data-toggle="tooltip" title="Notify" data-original-title=IconValue>
+                                                        <i class="fas fa-user-tag"></i>
+
+                                                    </a> -->
+                                                
+
+                                            </td>
+                                            <td>
+                                                notified on {{i.fraud_notified_date}}
+                                                status of claim inspect on {{i.fraud_identified_date}}
+<!--                                                 <a href="" type="button" class="subbtn btn btn-info btn-lg" data-toggle="modal" data-target="#myTimeline" id="subbtn">Timeline</a>
+
+                                        <div class="modal fade" id="myTimeline" role="dialog">
+                                            <div class="modal-dialog" style="top:100px;">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4>Timeline</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-body">notified on </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-body">status of claim inspect on </div>
+                                                    </div>
+                                                        <div class="modal-footer">
+                                                        </div>
+                                                    notified on 
+                                                status of claim inspect on
+                                                </div>
+
+                                            </div>
+                                        </div>
+ -->
+                                        
+                                            </td>
+
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                                <!-- <div id="contactForm">
+
+                                                        <h1>Keep in touch!</h1>
+                                                        <small>I'll get back to you as quickly as possible</small>
+
+                                                        <form action="#">
+                                                        <input placeholder="Name" type="text" required />
+                                                        <input placeholder="Email" type="email" required />
+                                                        <input placeholder="Subject" type="text" required />
+                                                        <textarea placeholder="Comment"></textarea>
+                                                        <input class="formBtn" type="submit" />
+                                                        <input class="formBtn" type="reset" />
+                                                        </form>
+                                                </div> -->
+                                        
+    <a href="#" class="paginate" id="previous">Previous</a> |
+    <a href="#" class="paginate" id="next">Next</a>
+</div>
+<script>
+var catid;
+$(".subbtn").click(function(){
+    catid = $(this).attr("data-catid")
+    console.log(catid)
+    console.log('hi')
+});
+
+$('#btnRemarks').on('click', function(){
+var remark = $('#remark').val();
+$.ajax({
+        type:"POST",
+        url: '/suspicious_cases/',
+        data:{
+                 id: catid,
+                 remark: remark,
+                 csrfmiddlewaretoken:'{{ csrf_token }}'
+        },
+        success: function() 
+        {
+        $('#myModal').modal('hide');
+            //location.reload();
+            $("#subbtn_22").removeAttr("data-target");
+            console.log("success")
+           
+        }
+     })  
+});
+
+// $('#myform').on('submit', function(event){
+//     debugger;
+//     event.preventDefault();
+//     console.log(catid)
+//     var remark = $('#remark').val()
+//     console.log(remark)
+//     console.log("form submitted!")
+//     debugger;
+//     $.ajax({
+//         type:"POST",
+//         url: '/suspicious_cases/',
+//         data:{
+//                  id: catid,
+//                  remark: remark,
+//                  csrfmiddlewaretoken:'{{ csrf_token }}'
+//         },
+//         success: function() 
+//         {
+//             location.reload();
+//             console.log("success")
+           
+//         }
+//      })  
+// });
+
+</script>
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+    {% endblock %}

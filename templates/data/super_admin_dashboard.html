@@ -1,0 +1,347 @@
+
+{% extends 'data/super_admin_base.html' %}
+{% block content %}
+
+
+<div class="content">
+
+
+    <div class="CategoryDivs">
+        <div class="row">
+
+<div class="col-3">
+<a href="#">
+<div class='Category warning'>
+<span class="CategoryIcon"><i class="fas fa-user-tag"></i></span>
+<span class="CategoryNumber">1</span>
+<span class="CategoryTitle">Inspecting Case</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href="#">
+<div class='Category danger'>
+<span class="CategoryIcon"><i class="fas fa-user-times"></i></span>
+<span class="CategoryNumber">2</span>
+<span class="CategoryTitle">Confirmed Fraud</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href='#'>
+<div class='Category success'>
+<span class="CategoryIcon"><i class="fas fa-user-check"></i></span>
+<span class="CategoryNumber">3</span>
+<span class="CategoryTitle">Clean Case</span>
+ </div>
+ </a> 
+ </div> 
+<div class="col-3">
+<a href='#'>
+<div class='Category info'>
+<span class="CategoryIcon"><i class="fas fa-users"></i></span>
+<span class="CategoryNumber">0</span>
+<span class="CategoryTitle">Write To Block</span>
+ </div>
+ </a> 
+ </div> 
+
+           
+
+        </div>
+    </div>
+
+    <div class="graphDIvs">
+        <div class="row">
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="CardTitle">
+                Suspicious Cases
+                <span class="small"></span>
+                <span class="ToggleLink">
+                    <a class="ToggleCardBody active">
+                        <i class="fas fa-window-minimize minimise"></i>
+                        <i class="fas fa-plus maximise"></i>
+                    </a>
+                </span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="graphtabs">
+
+                    <a class="btn" onclick="return ClickFunction(1);" id="daily">Daily</a>
+
+                    <a class="btn active" id="weekly" onclick="return ClickFunction(2)">Weekly</a>
+                    <a class="btn" id="Monthly" onclick="return ClickFunction(3)">Monthly</a>
+                </div>
+            </div>
+            <div class="CustomForms">
+                <div class="row">
+                    <div id="containerPie" style="min-width: 510px; max-width: 1200px; height:400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dialog" style="display: none">
+    </div>
+
+    
+
+
+    <script type="text/javascript">
+        function codeAddress() {
+            ClickFunction(2);
+        }
+        window.onload = codeAddress;
+    </script>
+  
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".btn").each(function () {
+            $(this).click(function () {
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+            });
+        });
+    });
+
+    function ClickFunction(e) {
+
+
+        $.ajax({
+            type: "POST",
+            url: "Home/Suspicious_Cases_PieScript?duration=" + e,
+            success: function (result) {
+                $('#dialog').html(result);
+            },
+
+            });
+    }
+    </script>
+</div>
+
+
+
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+
+            <h3 class="CardTitle">
+                Suspicious Cases
+                <span class="small"></span>
+                <span class="ToggleLink">
+                    <a class="ToggleCardBody active">
+                        <i class="fas fa-window-minimize minimise"></i>
+                        <i class="fas fa-plus maximise"></i>
+                    </a>
+                </span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="graphtabs">
+                    <a class="btn" onclick="return ClickFunctionChart2(1);" id="daily">Daily</a>
+                    <a class="btn active" id="weekly" onclick="return ClickFunctionChart2(2)">Weekly</a>
+                    <a class="btn" id="Monthly" onclick="return ClickFunctionChart2(3)">Monthly</a>
+                </div>
+            </div>
+            <div class="CustomForms">
+                <div class="row">
+                    <div id="containerChart2" style="min-width: 510px; max-width: 1200px; height:480px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+
+        // $(document).ready(function () {            
+            
+        //     $.ajax({
+        //         url: "Home/Suspicious_Cases_Chart2Script",
+        //         type: "POST",
+        //         contentType: "application/json; charset=utf-8",                
+        //         data: "{}",
+        //         dataType: "json",
+        //         success: function (Result) {
+        //             var series = [];
+        //             var categories = [];                    
+        //             var Notify = [];
+        //             var CleanCase = [];
+        //             var WriteToBlock = [];
+        //             var InvestigationRecommended = [];
+                  
+        //             for (i = 0; i < Result.length; i++)
+        //             {                      
+        //                 categories.push(Result[i].UserAddDate);
+        //                 Notify.push(Result[i].Notify);
+        //                 CleanCase.push(Result[i].CleanCase);
+        //                 WriteToBlock.push(Result[i].WriteToBlock);
+        //             }
+                    
+        //             series.push({
+        //                 name: 'Notify',
+        //                 data: Notify
+        //             },
+        //              {
+        //                  name: 'Investigation Recommended',
+        //                  data: InvestigationRecommended
+        //              },
+        //                 {
+        //                     name: 'Clean Case',
+        //                     data: CleanCase
+        //                 },
+        //                 {
+        //                     name: 'Write To Block',
+        //                     data: WriteToBlock
+        //                 }
+                        
+        //             );
+        //             BindChart(categories, series);
+        //         },
+        //         error: function (xhr) {
+                   
+        //             alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+        //         }
+        //     });
+
+        // });
+        
+        /////////////////////////////////////////////////////////////////////////////
+
+        function BindChart(categories, series) {
+            Highcharts.chart('containerChart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text:''
+                    
+                },
+                xAxis: {
+
+                    categories: categories
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: ''
+                    },
+                    stackLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        }
+                    }
+                },
+                legend: {
+                    align: 'right',
+                    x: -30,
+                    verticalAlign: 'top',
+                    y: 25,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                tooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: false,
+                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                        }
+                    }
+                },
+                series: series
+            });
+        }
+
+        
+
+        $(document).ready(function () {
+            $(".btn").each(function () {
+                $(this).click(function () {
+                    $(this).addClass("active");
+                    $(this).siblings().removeClass("active");
+                });
+            });
+        });
+
+        function ClickFunctionChart2(e) {
+           
+            $.ajax({
+                url: "Home/Suspicious_Cases_Chart2Script?duration=" + e,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (Result) {
+                    var series = [];
+                    var categories = [];
+                    var Notify = [];
+                    var CleanCase = [];
+                    var WriteToBlock = [];
+                    var InvestigationRecommended = [];
+                    for (i = 0; i < Result.length; i++) {
+                        categories.push(Result[i].UserAddDate);
+                        Notify.push(Result[i].Notify);
+                        CleanCase.push(Result[i].CleanCase);
+                        WriteToBlock.push(Result[i].WriteToBlock);
+                    }
+
+                    series.push({
+                        name: 'Notify',
+                        data: Notify
+                    },
+                        {
+                            name: 'Clean Case',
+                            data: CleanCase
+                        },
+                        {
+                            name: 'Write To Block',
+                            data: WriteToBlock
+                        }
+
+                    );
+                    BindChart(categories, series);
+                },
+                error: function (xhr) {
+
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+
+            });
+        }
+    </script>
+
+</div>
+
+
+
+        </div>
+    </div>
+   
+
+</div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+{% endblock %}

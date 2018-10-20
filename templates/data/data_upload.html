@@ -1,0 +1,319 @@
+{% extends 'data/base.html' %}
+{% block content %}                
+
+<div class="content-header">
+    <h1>
+        Upload <small></small>
+    </h1>
+
+</div>
+<div class="content">
+
+
+<form action="" method="post">{% csrf_token %}
+    <div class="row">
+            <div class="col-sm-12">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Export CSV
+                            <span class="small"></span>
+                            <span class="ToggleLink">
+                                
+                                <a class="ToggleCardBody active">
+
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                           
+
+
+
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="claimno" id="CSV_1" name="CSVColumn" checked="checked" /> claimno
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="EmpName" id="CSV_2" name="CSVColumn" checked="checked" /> EmpName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="CardNo" id="CSV_3" name="CSVColumn" checked="checked" /> CardNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PolicyNo" id="CSV_4" name="CSVColumn" checked="checked" /> PolicyNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PolicyFrom" id="CSV_5" name="CSVColumn" checked="checked" /> PolicyFrom
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PolicyUpto" id="CSV_6" name="CSVColumn" checked="checked" /> PolicyUpto
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="SumInsured" id="CSV_7" name="CSVColumn" checked="checked" /> SumInsured
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="GroupName" id="CSV_8" name="CSVColumn" checked="checked" /> GroupName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="NSPCity" id="CSV_9" name="CSVColumn" checked="checked" /> NSPCity
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="NSPState" id="CSV_10" name="CSVColumn" checked="checked" /> NSPState
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ClaimAmount" id="CSV_11" name="CSVColumn" checked="checked" /> ClaimAmount
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ClaimPayableTo" id="CSV_12" name="CSVColumn" checked="checked" /> ClaimPayableTo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PatientName" id="CSV_13" name="CSVColumn" checked="checked" /> PatientName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="Year" id="CSV_14" name="CSVColumn" checked="checked" /> Year
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PatientAge" id="CSV_15" name="CSVColumn" checked="checked" /> PatientAge
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="Relation" id="CSV_16" name="CSVColumn" checked="checked" /> Relation
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="CummulativeBonus" id="CSV_17" name="CSVColumn" checked="checked" /> CummulativeBonus
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="Gender" id="CSV_18" name="CSVColumn" checked="checked" /> Gender
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="intdate" id="CSV_19" name="CSVColumn" checked="checked" /> intdate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="curdate" id="CSV_20" name="CSVColumn" checked="checked" /> curdate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="LossDate" id="CSV_21" name="CSVColumn" checked="checked" /> LossDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="hname" id="CSV_22" name="CSVColumn" checked="checked" /> hname
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="disease" id="CSV_23" name="CSVColumn" checked="checked" /> disease
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ChapterName" id="CSV_24" name="CSVColumn" checked="checked" /> ChapterName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="icd10" id="CSV_25" name="CSVColumn" checked="checked" /> icd10
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="hosdate" id="CSV_26" name="CSVColumn" checked="checked" /> hosdate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="disdate" id="CSV_27" name="CSVColumn" checked="checked" /> disdate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ReserveAmount" id="CSV_28" name="CSVColumn" checked="checked" /> ReserveAmount
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ClaimType" id="CSV_29" name="CSVColumn" checked="checked" /> ClaimType
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PolicyType" id="CSV_30" name="CSVColumn" checked="checked" /> PolicyType
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="estExp" id="CSV_31" name="CSVColumn" checked="checked" /> estExp
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="AmountRecomm" id="CSV_32" name="CSVColumn" checked="checked" /> AmountRecomm
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="recommon" id="CSV_33" name="CSVColumn" checked="checked" /> recommon
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="processon" id="CSV_34" name="CSVColumn" checked="checked" /> processon
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ChequeNo" id="CSV_35" name="CSVColumn" checked="checked" /> ChequeNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ChequeDate" id="CSV_36" name="CSVColumn" checked="checked" /> ChequeDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="HospChequeNo" id="CSV_37" name="CSVColumn" checked="checked" /> HospChequeNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="hospChequeDate" id="CSV_38" name="CSVColumn" checked="checked" /> hospChequeDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="DiscDate" id="CSV_39" name="CSVColumn" checked="checked" /> DiscDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="Cashlessacceptedrejected" id="CSV_40" name="CSVColumn" checked="checked" /> Cashlessacceptedrejected
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PACNo" id="CSV_41" name="CSVColumn" checked="checked" /> PACNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PACReceivedOn" id="CSV_42" name="CSVColumn" checked="checked" /> PACReceivedOn
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PACAmount" id="CSV_43" name="CSVColumn" checked="checked" /> PACAmount
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="PACIssuedOn" id="CSV_44" name="CSVColumn" checked="checked" /> PACIssuedOn
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="FloatNo" id="CSV_45" name="CSVColumn" checked="checked" /> FloatNo
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="floatBillDate" id="CSV_46" name="CSVColumn" checked="checked" /> floatBillDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="InsOfficeCode" id="CSV_47" name="CSVColumn" checked="checked" /> InsOfficeCode
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="payOn" id="CSV_48" name="CSVColumn" checked="checked" /> payOn
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="InsBOName" id="CSV_49" name="CSVColumn" checked="checked" /> InsBOName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="InsROName" id="CSV_50" name="CSVColumn" checked="checked" /> InsROName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="InsName" id="CSV_51" name="CSVColumn" checked="checked" /> InsName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="status" id="CSV_52" name="CSVColumn" checked="checked" /> status
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="DateOfDocRec" id="CSV_53" name="CSVColumn" checked="checked" /> DateOfDocRec
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="TDSAmount" id="CSV_54" name="CSVColumn" checked="checked" /> TDSAmount
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="AgentCode" id="CSV_55" name="CSVColumn" checked="checked" /> AgentCode
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="DevelopmentCode" id="CSV_56" name="CSVColumn" checked="checked" /> DevelopmentCode
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="SettelementType" id="CSV_57" name="CSVColumn" checked="checked" /> SettelementType
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="SettelementDate" id="CSV_58" name="CSVColumn" checked="checked" /> SettelementDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="HospitalType" id="CSV_59" name="CSVColumn" checked="checked" /> HospitalType
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="HosPrePost" id="CSV_60" name="CSVColumn" checked="checked" /> HosPrePost
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="LastDocumentDate" id="CSV_61" name="CSVColumn" checked="checked" /> LastDocumentDate
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="ReserveAmt" id="CSV_62" name="CSVColumn" checked="checked" /> ReserveAmt
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="vchBankName" id="CSV_63" name="CSVColumn" checked="checked" /> vchBankName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="vchBeneficiaryName" id="CSV_64" name="CSVColumn" checked="checked" /> vchBeneficiaryName
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="vchFSCode" id="CSV_65" name="CSVColumn" checked="checked" /> vchFSCode
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="checkbox" value="vchAccountType" id="CSV_66" name="CSVColumn" checked="checked" /> vchAccountType
+                                    </div>
+
+
+
+
+
+ 
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+
+                        <input type="button" id="btnExport" value="Export To CSV" class="btn btn-default" />
+                    </div>
+                </div>
+
+                
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">
+                            Upload CSV
+                            <span class="small"></span>
+                            <span class="small text-right"><a href="/Vigillns/Uploads/Sample/Sample.csv">Sample Format</a></span>
+
+                            <span class="ToggleLink">
+                                <span class="small text-left">
+                                    <a id="btnCreate" alt="" href="{% url 'add_sus_case' %}"><h3 class="CardTitle">Create Record</h3></a>
+                                </span>
+                                <a class="ToggleCardBody active">
+
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Upload</label>
+                                        {{ form }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <input type="submit" value="upload" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+</div>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $("#btnExport").click(function () {
+            debugger;
+            var ChkBoxID;
+            var favorite = [];
+            $.each($("input[name='CSVColumn']:checked"), function () {
+                favorite.push($(this).val());
+            });
+            var ChkBoxID = favorite.join(", ");
+
+            window.location.href = '/DownloadCSV?ChkBoxID=' + ChkBoxID;
+
+        });
+
+
+    });
+
+</script>
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+{% endblock %}

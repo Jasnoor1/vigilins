@@ -1,0 +1,145 @@
+{% extends 'data/base.html' %}
+{% block content %}                
+
+
+<div class="content-header">
+    <h3>
+       Add Suspicious Cases <small></small>
+    </h3>
+    <div id="MsgDisplay" style="color:Green;"></div>
+    <div id="MsgDisplayError" style="color:red;"></div>
+</div>
+<div class="content">
+<form action="" method="post">{% csrf_token %}    <div class="CustomForms">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="CardTitle">                           
+                            <span class="small"> </span>
+                            <span class="ToggleLink">
+                                <a class="ToggleCardBody active">
+                                    <i class="fas fa-window-minimize minimise"></i>
+                                    <i class="fas fa-plus maximise"></i>
+                                </a>
+                            </span>
+                        </h3>
+                    </div>
+                        <div class="card-body">
+                            <div class="row">
+                                                                
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_claimno">Client Name</label>
+                                        {{form.client_name}}
+
+                                        
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_CardNo">Plolicy ID</label>
+                                        {{form.policy_id}}
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyNo">Claim Number</label>
+                                        {{form.claim_no}}
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyFrom">Patient Name</label>
+                                        {{form.first_name}}
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_PolicyUpto">PAN</label>
+                                        {{form.pan_id}}                                        
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="searchfraud_SumInsured">Aadhar Number</label>
+                                        {{form.aadhar_id}}
+                                        </div>
+                                </div>
+                                                         
+                        </div>
+
+                            <div class="card-foote">
+                                <div class="button-group">
+                                    <input type="submit" value="create">
+                                </div>
+                            </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+       
+</div>
+</form></div>
+<script type="text/javascript">
+    $("#BtnCreate").click(function () {
+        $("#MsgDisplay").html('');
+        $("#MsgDisplayError").html('');
+
+        //var policy = $("#searchfraud_PolicyNumber").val();
+        //var Client_ID = $("#searchfraud_Client_ID:selected").val();
+        //var FirstName = $("#searchfraud_FirstName").val();
+        //var LastName = $("#searchfraud_LastName").val();
+        //var ClaimID = $("#searchfraud_ClaimID").val();
+        //var ID = $("#searchfraud_ID:selected").val();
+        //var PAN = $("#searchfraud_PAN").val();
+        //var AadharNumber = $("#searchfraud_AadharNumber").val();
+        //debugger;
+        //if (policy == 0) {
+        //    $("#MsgDisplayError").html("policy number can't be blank!");
+        //    return false;
+        //}
+        //if (Client_ID == 0) {
+        //    $("#MsgDisplayError").html("Please select Client!");
+        //    return false;
+        //}
+        //if (FirstName == null) {
+        //    $("#MsgDisplayError").html("Please Insert FirstName !");
+        //    return false;            
+        //}
+        //if (LastName == null) {
+        //    $("#MsgDisplayError").html("Please Insert LastName !");
+        //    return false;
+
+        //}
+        //if (AadharNumber==null) {
+        //    $("#MsgDisplayError").html("Please Insert AadharNumber !");
+        //    return false;
+
+        //}
+
+        //if (policy >0)
+        //{
+            $("#MsgDisplay").html("Record Saved Successfully!");
+           
+        //}
+        //else {
+        //    $("#MsgDisplayError").html("Record Not inserted!");
+        //    return false;
+        //}
+        
+    });
+
+</script>
+            </div>
+        </div>
+        <!-- End Right Container -->
+    </div>
+    <!-- End Main Container -->
+{% endblock %}
